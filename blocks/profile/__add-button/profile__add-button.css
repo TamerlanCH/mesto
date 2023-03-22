@@ -9,7 +9,7 @@
 }
 
 .profile__add-button:hover {
-    opacity: .7;
+    opacity: .6;
 }
 
 @media(max-width: 730px) {

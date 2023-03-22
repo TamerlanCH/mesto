@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
-    <title>Document</title>
+    <title>Mesto</title>
 </head>
 <body class="root">
     <div class="page">
@@ -17,10 +17,10 @@
                 <img src="./images/avatar.jpg" alt="аватар" class="profile__avatar">
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button class="profile__edit-button"></button>
+                    <button class="profile__edit-button" type="button"></button>
                     <p class="profile__about">Исследователь океана</p>
                 </div>
-                <button class="profile__add-button"></button>
+                <button class="profile__add-button" type="button"></button>
             </section>
             <section class="elements">
                 <ul class="element">
@@ -76,10 +76,10 @@
         <div class="popup">
             <div class="popup__container">
                 <h3 class="popup__title">Редактировать профиль</h3>
-                <form class="popup__form">
+                <form class="popup__form" name="profile-form">
                 <fieldset class="popup__fieldset">
-                    <input class="popup__input popup__input_name" type="text">
-                    <input class="popup__input popup__input_about" type="text">
+                    <input class="popup__input popup__input_type_name" name="name-input" type="text">
+                    <input class="popup__input popup__input_type_about"  name="about-input" type="text">
                 </fieldset>
                 <button class="popup__save" type="submit" title="Сохранить">Сохранить</button>
             </form>

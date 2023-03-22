@@ -3,8 +3,8 @@ const editButton = document.querySelector('.profile__edit-button');
 const closeButton = document.querySelector('.popup__close');
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
-const nameInput = document.querySelector('.popup__input_name');
-const aboutInput = document.querySelector('.popup__input_about');
+const nameInput = document.querySelector('.popup__input_type_name');
+const aboutInput = document.querySelector('.popup__input_type_about');
 const formElement = document.querySelector('.popup__form');
 
 function changeValue() {
@@ -13,12 +13,12 @@ function changeValue() {
 }
 
 function openedPopup() {
-    popup.classList.add('popup__opened');
+    popup.classList.add('popup_opened');
     changeValue();
 }
 
 function closePopup() {
-    popup.classList.remove('popup__opened');
+    popup.classList.remove('popup_opened');
 }
 
 function handleFormSubmit (evt) {
