@@ -18,6 +18,7 @@
 
 @media(max-width: 428px) {
     .profile__about {
+        max-width: 240px;
         font-size: 14px;
         line-height: 17px;
     }
