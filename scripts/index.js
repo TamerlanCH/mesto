@@ -1,6 +1,6 @@
 
 const editButton = document.querySelector('.profile__edit-button');
-const closeButton = document.querySelectorAll('.popup__close');
+const closeButtonList = document.querySelectorAll('.popup__close');
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
 const nameInput = document.querySelector('.popup__input_type_name');
@@ -52,7 +52,7 @@ function changeValue() {
   aboutInput.value = profileAbout.textContent;
 }
 
-function openedPopup(popup) {
+function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
 
@@ -60,14 +60,14 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
-closeButton.forEach((button) => {
+closeButtonList.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener ('click', () => closePopup(popup));
 });
 
 //РЕДАКТОР ПРОФИЛЯ
 editButton.addEventListener('click', () => {
-  openedPopup(popupProfile);
+  openPopup(popupProfile);
   changeValue();
 });
 
@@ -82,7 +82,7 @@ formProfile.addEventListener('submit', handleFormSubmit);
 
 //КАРТОЧКИ
 addButton.addEventListener('click', () => {
-  openedPopup(popupCard);
+  openPopup(popupCard);
 })
 
 const handleLikeCard = (event) => {
@@ -110,7 +110,7 @@ const createCard = (dataCard) => {
   deleteButton.addEventListener('click', handleDeleteCard);
 
   imageCard.addEventListener('click', () => {
-    openedPopup(popupView);
+    openPopup(popupView);
 
     popupImage.src = imageCard.src;
     popupImage.alt = imageCard.alt;
@@ -126,7 +126,7 @@ const renderCard = (dataCard) => {
 }
 
 initialCards.forEach((dataCard) => {
-  renderCard(dataCard);
+  elementContainer.append(createCard(dataCard));
 })
 
 const handleSubmitAddCard = (event) => {
