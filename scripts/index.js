@@ -17,6 +17,8 @@ const elementContainer = document.querySelector('.element');
 const popupView = document.querySelector('.popup_view');
 const popupText = document.querySelector('.popup__view-text');
 const popupImage = document.querySelector('.popup__image');
+const popupElems = document.querySelectorAll('.popup');
+const formCardBtn = formNewCard.querySelector('.popup__save');
 
 
 //массив
@@ -54,15 +56,37 @@ function changeValue() {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByEsc);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.addEventListener('keydown', closePopupByEsc);
+  clearErrors(popup);
 }
+
+function closePopupByEsc(event) {
+  if (event.key === 'Escape') {
+    const currentOpenedPopup = document.querySelector('.popup_opened');
+    closePopup(currentOpenedPopup);
+  }
+}
+
+popupElems.forEach((popup) => {
+  popup.addEventListener('mousedown', (event) => {
+    if (
+      event.target.classList.contains('popup__close')
+      || event.target.classList.contains('popup_opened')
+    ) {
+      closePopup(popup);
+    }
+  });
+});
+
 
 closeButtonList.forEach((button) => {
   const popup = button.closest('.popup');
-  button.addEventListener ('click', () => closePopup(popup));
+  button.addEventListener('click', () => closePopup(popup));
 });
 
 //РЕДАКТОР ПРОФИЛЯ
@@ -71,17 +95,27 @@ editButton.addEventListener('click', () => {
   changeValue();
 });
 
-function handleFormSubmit (evt) {
-    evt.preventDefault();
-    profileName.textContent = nameInput.value;
-    profileAbout.textContent = aboutInput.value;
-    closePopup(popupProfile);
+function handleFormSubmit(evt) {
+  evt.preventDefault();
+  profileName.textContent = nameInput.value;
+  profileAbout.textContent = aboutInput.value;
+  closePopup(popupProfile);
 }
 
 formProfile.addEventListener('submit', handleFormSubmit);
 
+function resetErrors(form) {
+  const inputs = form.querySelectorAll('.form__input');
+  inputs.forEach((input) => {
+    hideInputError(form, input, configValidation);
+  });
+}
+
 //КАРТОЧКИ
 addButton.addEventListener('click', () => {
+  formCardBtn.disabled = true;
+  formNewCard.reset();
+  resetErrors(formNewCard);
   openPopup(popupCard);
 })
 
@@ -131,12 +165,12 @@ initialCards.forEach((dataCard) => {
 
 const handleSubmitAddCard = (event) => {
   event.preventDefault();
-  renderCard({ 
+  renderCard({
     name: cardInputName.value,
     link: cardInputLink.value
-   });
-   formNewCard.reset();
-   closePopup(popupCard);
+  });
+  formNewCard.reset();
+  closePopup(popupCard);
 }
 
 formNewCard.addEventListener('submit', handleSubmitAddCard);
