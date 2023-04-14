@@ -43,19 +43,15 @@ const toggleButtonState = (inputList, buttonElement) => {
 };
 
 function clearErrors(enterPopup) {
-    const errors = enterPopup.querySelectorAll(".popup__input-error_active");
+    const errors = enterPopup.querySelectorAll("." + configValidation.errorClass);
     errors.forEach((error) => {
-        error.classList.remove(`popup__input-error_active`);
+        error.classList.remove(configValidation.errorClass);
         error.textContent = "";
     });
-    const borders = enterPopup.querySelectorAll(".popup__input_type_error");
+    const borders = enterPopup.querySelectorAll("." + configValidation.inputErrorClass);
     borders.forEach((border) => {
-        border.classList.remove(`popup__input_type_error`);
+        border.classList.remove(configValidation.inputErrorClass);
     });
-
-    if (enterPopup.classList.contains("popup_type_profile")) {
-        toggleButtonState(false, enterPopup, configValidation);
-    }
 }
 
 const setEventListeners = (formElement, configValidation) => {
