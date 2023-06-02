@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="./pages/index.css"> -->
+  <title>Mesto</title>
+</head>
+
+<body class="root">
+  <div class="page">
+    <header class="header">
+      <img src="./images/header-logo.svg" alt="Логотип Mesto Russia" class="header__logo">
+    </header>
+    <main class="content">
+      <section class="profile">
+        <img src="./images/avatar.jpg" alt="Аватарка" class="profile__avatar">
+        <div class="profile__info">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button opacity" type="button"></button>
+          <p class="profile__about">Исследователь океана</p>
+        </div>
+        <button class="profile__add-button opacity" type="button"></button>
+      </section>
+      <section class="elements">
+        <ul class="element">
+
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+    </footer>
+
+    <div class="popup popup_profile">
+      <div class="popup__container">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form class="popup__form popup__form_profile" name="profile-form" novalidate>
+          <input type="text" name="name" placeholder="Имя" class="popup__input popup__input_user_name"
+            id="profile-name-input" minlength="2" maxlength="40" required>
+          <span class="popup__input-error profile-name-input-error"></span>
+          <input type="text" name="about" placeholder="О себе" class="popup__input popup__input_user_about"
+            id="profile-about-input" minlength="2" maxlength="200" required>
+          <span class="popup__input-error profile-about-input-error"></span>
+          <button type="submit" class="popup__button">Сохранить</button>
+        </form>
+        <button type="button" class="popup__close-button opacity"></button>
+      </div>
+    </div>
+
+
+    <div class="popup popup_card">
+      <div class="popup__container">
+        <h2 class="popup__title">Новое место</h2>
+        <form class="popup__form popup__form_card" name="popupForm" novalidate>
+          <input type="text" name="nameCard" placeholder="Название" class="popup__input popup__input_card_name"
+            id="card-name-input" minlength="2" maxlength="30" required>
+          <span class="popup__input-error card-name-input-error"></span>
+          <input type="url" name="linkCard" placeholder="Ссылка на картинку"
+            class="popup__input popup__input_card_link" id="card-link-input" required>
+          <span class="popup__input-error card-link-input-error"></span>
+          <button type="submit" class="popup__button">Создать</button>
+        </form>
+        <button type="button" class="popup__close-button opacity"></button>
+      </div>
+    </div>
+
+    <div class="popup popup_picture">
+      <div class="popup__picture-container">
+        <img class="popup__image" src="#" alt="#">
+        <p class="popup__picture-text"></p>
+        <button type="button" class="popup__close-button opacity"></button>
+      </div>
+    </div>
+  </div>
+
+
+  <template id="card-template">
+    <li class="element__item">
+      <img src="#" alt="#" class="element__image">
+      <div class="element__description">
+        <h3 class="element__title"></h3>
+        <button class="element__like opacity" type="button"></button>
+      </div>
+      <button class="element__delete opacity"></button>
+    </li>
+  </template>
+
+  <!-- <script type="module" src="./pages/index.js" defer></script> -->
+
+</body>
+
+</html>
