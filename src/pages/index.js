@@ -2,8 +2,7 @@ import { initialCards } from "../utils/initialCards.js"
 import { configValidation } from "../utils/config.js"
 
 import {
-  popupOpenElem, cardAddBtn, popupProfile,
-  popupCard, popupPicture, profileName,
+  popupOpenElem, cardAddBtn, profileName,
   profileAbout, formProfile,
   formCard, cardContainer
 
@@ -24,7 +23,7 @@ profileFormValidator.enableValidation();
 cardFormValidator.enableValidation();
 
 const userInfo = new UserInfo(profileName, profileAbout);
-const popupWithImage = new PopupWithImage({ popupSelector: popupPicture });
+const popupWithImage = new PopupWithImage({ popupSelector: '.popup_picture' });
 
 const renderCard = new Section(
   {
@@ -37,7 +36,7 @@ const renderCard = new Section(
 );
 
 const profileFormPopup = new PopupWithForm({
-  popupSelector: popupProfile,
+  popupSelector: '.popup_profile',
   submitCallback: (formValues) => {
     userInfo.setUserInfo(formValues);
     profileFormPopup.close();
@@ -45,7 +44,7 @@ const profileFormPopup = new PopupWithForm({
 })
 
 const cardFormPopup = new PopupWithForm({
-  popupSelector: popupCard,
+  popupSelector: '.popup_card',
   submitCallback: (formValues) => {
     const dataCard = { name: formValues.nameCard, link: formValues.linkCard };
     renderCard.addItem(createCard(dataCard));
