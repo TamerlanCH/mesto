@@ -14,13 +14,15 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img src="./images/avatar.jpg" alt="Аватарка" class="profile__avatar">
+        <button class="profile__avatar-button">
+          <img src="#" alt="аватарка" class="profile__avatar">
+        </button>
         <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button opacity" type="button"></button>
-          <p class="profile__about">Исследователь океана</p>
+          <h1 class="profile__name">Имя пользавателя</h1>
+          <button class="profile__edit-button opacity" aria-label="Редактировать профиль" type="button"></button>
+          <p class="profile__about">Описание пользавателя</p>
         </div>
-        <button class="profile__add-button opacity" type="button"></button>
+        <button class="profile__add-button opacity" aria-label="Добавить" type="button"></button>
       </section>
       <section class="elements">
         <ul class="element">
@@ -29,7 +31,7 @@
       </section>
     </main>
     <footer class="footer">
-      <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+      <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
     </footer>
 
     <div class="popup popup_profile">
@@ -44,10 +46,9 @@
           <span class="popup__input-error profile-about-input-error"></span>
           <button type="submit" class="popup__button">Сохранить</button>
         </form>
-        <button type="button" class="popup__close-button opacity"></button>
+        <button type="button" class="popup__close-button opacity" aria-label="Закрыть попап"></button>
       </div>
     </div>
-
 
     <div class="popup popup_card">
       <div class="popup__container">
@@ -56,12 +57,12 @@
           <input type="text" name="nameCard" placeholder="Название" class="popup__input popup__input_card_name"
             id="card-name-input" minlength="2" maxlength="30" required>
           <span class="popup__input-error card-name-input-error"></span>
-          <input type="url" name="linkCard" placeholder="Ссылка на картинку"
-            class="popup__input popup__input_card_link" id="card-link-input" required>
+          <input type="url" name="linkCard" placeholder="Ссылка на картинку" class="popup__input popup__input_card_link"
+            id="card-link-input" required>
           <span class="popup__input-error card-link-input-error"></span>
           <button type="submit" class="popup__button">Создать</button>
         </form>
-        <button type="button" class="popup__close-button opacity"></button>
+        <button type="button" class="popup__close-button opacity" aria-label="Закрыть попап"></button>
       </div>
     </div>
 
@@ -69,20 +70,45 @@
       <div class="popup__picture-container">
         <img class="popup__image" src="#" alt="#">
         <p class="popup__picture-text"></p>
-        <button type="button" class="popup__close-button opacity"></button>
+        <button type="button" class="popup__close-button opacity" aria-label="Закрыть попап"></button>
+      </div>
+    </div>
+
+    <div class="popup popup_remove-card">
+      <div class="popup__container">
+        <h2 class="popup__remove-card-title">Вы уверены?</h2>
+        <form class="popup__form popup__form_remove-card" name="popupForm" novalidate>
+          <button type="submit" class="popup__button">Да</button>
+        </form>
+        <button type="button" class="popup__close-button opacity" aria-label="Закрыть попап"></button>
+      </div>
+    </div>
+
+    <div class="popup popup_update-avatar">
+      <div class="popup__container">
+        <button type="button" class="popup__close-button opacity" aria-label="Закрыть попап"></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="popup__form popup__form_update-avatar" name="popupForm" novalidate>
+          <input type="url" name="avatarLink" placeholder="Ссылка на картинку" class="popup__input popup__input_update-avatar"
+            id="avatar-link-input" required>
+          <span class="popup__input-error avatar-link-input-error" id="avatar_error"></span>
+          <button type="submit" class="popup__button">Создать</button>
+        </form>
       </div>
     </div>
   </div>
-
 
   <template id="card-template">
     <li class="element__item">
       <img src="#" alt="#" class="element__image">
       <div class="element__description">
         <h3 class="element__title"></h3>
-        <button class="element__like opacity" type="button"></button>
+        <div class="element__like-container">
+          <button class="element__like opacity" aria-label="Лайк" type="button"></button>
+          <span class="element__like-counter">0</span>
+        </div>
       </div>
-      <button class="element__delete opacity"></button>
+      <button class="element__delete opacity" aria-label="Удалить"></button>
     </li>
   </template>
 

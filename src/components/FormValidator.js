@@ -1,10 +1,7 @@
-
 class FormValidator {
-
     constructor(formElement, configValidation) {
         this._configValidation = configValidation;
         this._formElement = formElement;
-
     }
 
     //показать элемент ошибки
@@ -64,17 +61,16 @@ class FormValidator {
 
     resetValidation() {
         this._toggleButtonState();
-  
+
         this._inputList.forEach((inputElement) => {
-          this._hideInputError(inputElement)
+            this._hideInputError(inputElement)
         });
-  
-      }
+
+    }
 
     enableValidation() {
         this._setEventListeners();
     }
-
 }
 
 export default FormValidator;

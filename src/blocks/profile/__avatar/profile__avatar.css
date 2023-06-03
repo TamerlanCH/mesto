@@ -1,13 +1,9 @@
 .profile__avatar {
-    margin: 0;
-    margin-right: 30px;
     width: 120px;
     height: 120px;
+    display: block;
     border-radius: 50%;
-}
-
-@media (max-width: 768px) {
-    .profile__avatar {
-        margin: 0;
-    }
+    object-fit: cover;
+    position: relative;
+    z-index: -1;
 }
