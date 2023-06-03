@@ -49,7 +49,6 @@ class Card {
         this._likeCard = this._newCard.querySelector('.element__like');
         this._likeCard.addEventListener('click', () => {
             this._handleLike(this.chekLikes())
-            this._likeCard.classList.toggle('element__like_active')
         })
 
         //открытие изображения
@@ -69,22 +68,25 @@ class Card {
         return this._delete();
     }
 
-    setLikes(likesArray) {
-        this._likes = likesArray;
-        this._cardElementLikeCounter.textContent = this._likes.length;
-
-        let returnResult;
-        for (let i = 0; i < this._likes.length; i++) {
-            if (this._likes[i]._id == this._myId) {
-                this._likeCard.classList.add('element__like_active');
-                break;
-            } else {
-                this._likeCard.classList.remove('element__like_active');
-                returnResult = false
+    setLikes(likesArray) { 
+        this._likes = likesArray; 
+        this._cardElementLikeCounter.textContent = this._likes.length; 
+        let returnResult = false; 
+        if (this._likes.length > 0) {
+            for (let i = 0; i < this._likes.length; i++) { 
+                if (this._likes[i]._id === this._myId) { 
+                    this._likeCard.classList.add('element__like_active'); 
+                    returnResult = undefined;
+                    break; 
+                } else { 
+                    this._likeCard.classList.remove('element__like_active'); 
+                } 
             }
+        } else {
+            this._likeCard.classList.remove('element__like_active'); 
         }
-        return returnResult;
-    }
+        return returnResult; 
+    }    
 
     chekLikes() {
         return this._likeCard.classList.contains('element__like_active')
